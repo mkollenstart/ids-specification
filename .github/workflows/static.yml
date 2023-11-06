@@ -32,15 +32,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Fix permissions
-        run: |
-          mkdir $GITHUB_REF_NAME
-          cp -r * $GITHUB_REF_NAME || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload entire repository
-          path: ${{ github.ref_name }}
+          # Upload releases folder
+          path: ./releases/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
