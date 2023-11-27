@@ -32,6 +32,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Create HEAD release
+        run: |-
+          mkdir releases/head
+          rsync -R **/*.{json,ttl} ./releases/head/
+          rm -r releases/head/releases
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
