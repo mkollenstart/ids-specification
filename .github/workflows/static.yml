@@ -38,7 +38,6 @@ jobs:
           mkdir releases/head
           rsync -Rav --prune-empty-dirs --exclude="releases/**" --include="*/" --include="**/*.json" --exclude="**" ./ ./releases/head/
           rsync -Rav --prune-empty-dirs --exclude="releases/**" --include="*/" --include="**/*.ttl" --exclude="**" ./ ./releases/head/
-          rm -r releases/head/releases
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
