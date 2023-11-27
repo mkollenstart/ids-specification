@@ -36,7 +36,8 @@ jobs:
         shell: bash
         run: |-
           mkdir releases/head
-          rsync -R **/*.{json,ttl} ./releases/head/
+          rsync -R **/*.json ./releases/head/
+          rsync -R **/*.ttl ./releases/head/
           rm -r releases/head/releases
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
